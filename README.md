@@ -1,6 +1,6 @@
 # UserManagmentSystem
 
-User Managment System allows register and store users (user/admin) in daatabase with encrypted password.
+User Managment System allows register and store users (user/admin) in database with encrypted password.
 
 
 Requirements:
