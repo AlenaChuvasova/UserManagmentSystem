@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div id="home">
+    <nav class="nav_home">
+        <a >Welcome</a>
+        <a href="/register" th:click="clickme" target="_blank">Sign up</a>
+        <a href="/login" th:click="clickme" target="_blank">Sign in</a>
+    </nav>
+</div>
+</body>
+</html>

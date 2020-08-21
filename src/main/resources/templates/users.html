@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<form action="/users" th:action="@{/users}" th:object="${users}" method="get">
+    <div th:switch="${users}">
+        <h2 th:case="null">No users yet!</h2>
+        <div th:case="*">
+            <table>
+                <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> USERNAME</th>
+                    <th> ROLE</th>
+                    <th>     </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"> Id </span></td>
+                    <td th:text="${user.username}"> Username </span></td>
+                    <td th:text="${user.role}"> Role </span></td>
+                    <td><a th:href="@{/user/{id}(id=${user.id})}">Details</a></td>
+                </tr>
+                </tbody>
+            </table>
+            </br>
+        </div>
+    </br>
+        <div id="back">
+            <a href="/users/new" th:click="clickme" target="_blank">Add new User</a>
+        </br>
+            <a href="/menu">Back to menu</a>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Sign in</h3>
+<br id="login" action="/loginform" th:action="@{/loginform}" th:object="${userAccount}" method="post">
+<div class="username">
+    <label for="username">Username:</label>
+    <input type="text" class="username" id="username" placeholder="Enter username"
+           name="username" th:field="*{username}">
+    <br/>
+</div>
+<div class="password">
+    <label for="password">Password:</label>
+    <input type="password" class="password" id="password" placeholder="Enter password"
+           name="password" th:field="*{password}">
+    <br/>
+
+</div>
+</br>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+<button type="submit" class="btn btn-primary">Login</button>
+</form>
+</body>
+</html>

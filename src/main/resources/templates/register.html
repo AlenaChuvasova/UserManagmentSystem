@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3>Registration</h3>
+    <form id="register" action="/register" th:action="@{/register}" th:object="${userAccount}" method="post">
+        <div class="name">
+            <label for="name">Name:</label>
+            <input type="text" class="name" id="name" placeholder="Enter name"
+                   name="name" th:field="*{name}">
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+               class="alert alert-danger"></p>
+            <br/>
+        </div>
+        <div class="surname">
+            <label for="surname">Surname:</label>
+            <input type="text" class="surname" id="surname" placeholder="Enter surname"
+                   name="surname" th:field="*{surname}">
+            <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"
+               class="alert alert-danger"></p>
+            <br/>
+        </div>
+        <div class="username">
+            <label for="userName">Username:</label>
+            <input type="text" class="username" id="username" placeholder="Enter username"
+                   name="username" th:field="*{username}">
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+               class="alert alert-danger"></p>
+            <br/>
+        </div>
+        <div class="password">
+            <label for="password">Password:</label>
+            <input type="password" class="password" id="password" placeholder="Enter password"
+                   name="password" th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+               class="alert alert-danger"></p>
+            <br/>
+        </div>
+        <div class="role">
+            <label for="role">Choose appropriate role:</label>
+            <select name="role" id="role">
+                <option th:each="role : ${T(by.chuvasova.ums.model.Role).values()}" th:value="${role}"
+                        th:text="${role.name}"></option>
+            </select>
+        </div>
+        <div class="status">
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option th:each="status : ${T(by.chuvasova.ums.model.UserState).values()}" th:value="${status}"
+                        th:text="${status.name}"></option>
+            </select>
+        </div>
+        </br>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </br>
+        <div>
+            <a href="/">Back to home page</a>
+        </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>

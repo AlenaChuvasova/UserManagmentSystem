@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User details</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<form action="/user/{id}" th:action="@{/user/{id}(id=${user.id})}" th:object="${user}" method="get">
+    <table>
+        <thead>
+        <tr>
+            <th> ID</th>
+            <th> USERNAME</th>
+            <th> NAME</th>
+            <th> SURNAME</th>
+            <th> ROLE</th>
+            <th> STATUS</th>
+            <th> CREATED DATE</th>
+            <th> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+            <td th:text="${user.id}"> Id </span></td>
+            <td th:text="${user.username}"> Username </span></td>
+            <td th:text="${user.name}"> Name </span></td>
+            <td th:text="${user.surname}"> Surname </span></td>
+            <td th:text="${user.role}"> Role </span></td>
+            <td th:text="${user.status}"> Status </span></td>
+            <td th:text="${user.createdAt}"> CreatedAt </span></td>
+            <td><a th:href="@{/users/{id}/edit(id=${user.id})}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+    </br>
+    <div id="back">
+        <a href="/users">Back to list</a>
+    </div>
+</form>
+</body>
+</html>

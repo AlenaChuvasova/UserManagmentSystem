@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main menu</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div id="menu">
+    <nav class="nav_home">
+        <a href="/users" th:click="clickme" target="_blank">List of all users</a>
+        <a href="/logout" th:click="clickme" target="_blank">Logout</a>
+    </nav>
+</div>
+</body>
+</html>
